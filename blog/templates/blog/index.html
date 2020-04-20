@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div id="jumbo">
+    <h1>English - Spanish</h1>
+    <div id="search-box">
+        <span contenteditable="true" id="search-field">
+            train
+        </span>
+        <span>
+            <button id="search-field-btn">search</button>
+        </span>
+    </div>
+    <div id="word-container">
+        {% for item in stuff %}
+        <div class="word-block" id={{item.title}}>
+            {{item.title}} - {{item.content}} 
+            <audio class={{item.title}}>
+                <source src="{{item.docfile.url}}" type='audio/mpeg' />
+            </audio>
+            <span class="soundButt" data-sound={{item.title}}><button>play</button></span>
+        </div>   
+        {% endfor %}
+    </div>
+</div>
+
+<form method = 'POST' enctype="multipart/form-data" id="word-form">
+    <h2>Upload a new word</h2>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Save</button>
+</form>
+
+{% endblock content %}
+
+
