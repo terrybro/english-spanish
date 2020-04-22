@@ -1,0 +1,10 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<form method = 'POST' enctype="multipart/form-data" id="word-form">
+    <h2>Update word</h2>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Save</button>
+</form>
+
+{% endblock content %}

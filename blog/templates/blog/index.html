@@ -18,6 +18,8 @@
                 <source src="{{item.docfile.url}}" type='audio/mpeg' />
             </audio>
             <span class="soundButt" data-sound={{item.title}}><button>play</button></span>
+            <a href="delete_blog/{{item.id}}" class="btn btn-danger" id = '{{item.id}}'>delete</a>
+            <a href="update_blog/{{item.id}}" class="btn btn-danger" id = '{{item.id}}'>update</a>
         </div>   
         {% endfor %}
     </div>
